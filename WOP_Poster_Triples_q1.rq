@@ -1,3 +1,7 @@
+PREFIX : <http://purl.org/net/rr/RelativeRelationshipPattern#>
+PREFIX v: <http://rr-pattern.example/extvocab#>
+PREFIX d: <http://rr-pattern.example/data#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
 SELECT ?building_name ?factor_number ?ref
 WHERE {
