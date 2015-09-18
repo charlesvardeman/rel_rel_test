@@ -1,0 +1,45 @@
+@prefix : <http://purl.org/net/rr/RelativeRelationshipPattern#>.
+@prefix d: <http://rr-pattern.example/data#>.
+@prefix v: <http://rr-pattern.example/extvocab#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix u:   <http://learningsparql.com/ns/units#> .
+
+v:PhysicalScaleDescription rdfs:subClassOf :RelationshipDescription .
+v:Limit rdfs:subClassOf :Property .
+v:Factor rdfs:subClassOf :Property .
+v:OverallVolume rdfs:subClassOf :Property .
+v:Age rdfs:subClassOf :Property .
+v:CoordinateSet rdfs:subClassOf :Property .
+v:CoordinateType rdfs:subClassOf :Property .
+
+d:Building1Model rdf:type :Entity ; rdfs:label "Building1Model" .
+d:Building1Model rdf:type :Entity ; rdfs:label "Building1Model" .
+d:Engineering rdf:type :Domain ; rdfs:label "Engineering" .
+d:Architecture rdf:type :Domain ; rdfs:label "Architecture" .
+d:ScaleTranslation rdf:type :Attribute ; rdfs:label "ScaleTranslation" .
+d:2_Buildings rdf:type :Scope ; rdfs:label "2_Buildings" .
+d:BuildingCoordinateSetDetails rdf:type :LevelOfDetail ; rdfs:label "BuildingCoordinateSetDetails" .
+d:Construction rdf:type :Usage ; rdfs:label "Construction" .
+d:Design rdf:type :Usage ; rdfs:label "Design" .
+
+d:building1pa a v:Limit ; v:hasValue "100"; v:hasUnit u:years .
+d:building1pb a v:Factor ; v:hasValue "2.0"; v:hasUnit u:float .
+d:building1pc a v:OverallVolume ; v:hasValue "10000"; v:hasUnit u:cubic_meters .
+d:building1pd a v:Age ; v:hasValue "25"; v:hasUnit u:years .
+d:building1pe a v:CoordinateSet ; v:hasValue "CAD_File" .
+d:building1pf a v:CoordinateType ; v:hasValue "World_Coordinates" .
+d:building2pa a v:Limit ; v:hasValue "100"; v:hasUnit u:years .
+d:building2pb a v:Factor ; v:hasValue "0.5"; v:hasUnit u:float .
+d:building2pc a v:OverallVolume ; v:hasValue "5000"; v:hasUnit u:cubic_meters .
+d:building2pd a v:Age ; v:hasValue "10"; v:hasUnit u:years .
+d:building2pe a v:CoordinateSet ; v:hasValue "IFC_File" .
+d:building2pf a v:CoordinateType ; v:hasValue "Local_Coordinates" .
+
+d:Building_1_Instance rdf:type :RelativeExisttence; :relativeExistenceOf d:Building1Model ;
+    :determinedBy d:building1pa, d:building1pb, d:building1pc, d:building1pd, d:building1pe, d:building1pf .
+d:Building_2_Instance a :RelativeExistence; :relativeExistenceOf d:Building1Mode2 ;
+    :determinedBy d:building2pa, d:building2pb, d:building2pc, d:building2pd, d:building2pe, d:building2pf .
+d:translation1 a v:PhysicalScaleDescription; :hasOrigin d:Building_1_Instance;  :hasTarget d:Building_2_Instance.
+
+

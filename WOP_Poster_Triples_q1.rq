@@ -1,0 +1,13 @@
+
+SELECT ?building_name ?factor_number ?ref
+WHERE {
+  VALUES ?building_name { "Building2Model" }
+  [] :relativeExistenceOf [ a :Entity; rdfs:label ?building_name ] ;  
+      :determinedBy [a v:factor ; v:hasValue ?factor_number ] ;
+	  d:translation1 [ a v:PhysicalScaleDescription; ?ref d:Building_2_Instance ] .
+}
+
+# Expected:
+# ?building_name      ?factor_number    ?ref
+# "Building2Model"    "0.5"             :hasTarget
+

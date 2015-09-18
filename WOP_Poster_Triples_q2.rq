@@ -1,0 +1,12 @@
+SELECT ?building_name ?coordinate_set
+WHERE {
+  VALUES ?building_name { "Building1Model" "Building2Model" }
+  [] :relativeExistenceOf [ a :Entity; rdfs:label ?building_name ] ; 
+      :determinedBy [a v:CoordinateSet ; v:hasValue ?coordinate_set ] .
+}
+
+# Expected:
+# ?building_name ?coordinate_set
+# "Building2Model" "IFC_File"
+# "Building1Model" "CAD_File"
+-
