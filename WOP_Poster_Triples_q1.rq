@@ -1,17 +1,28 @@
 PREFIX : <http://purl.org/net/rr/RelativeRelationshipPattern#>
-PREFIX v: <http://rr-pattern.example/extvocab#>
 PREFIX d: <http://rr-pattern.example/data#>
+PREFIX v: <http://rr-pattern.example/extvocab#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX u:   <http://learningsparql.com/ns/units#>
 
 SELECT ?building_name ?factor_number ?ref
-WHERE {
-  VALUES ?building_name { "Building2Model" }
-  [] :relativeExistenceOf [ a :Entity; rdfs:label ?building_name ] ;  
-      :determinedBy [a v:factor ; v:hasValue ?factor_number ] ;
-	  d:translation1 [ a v:PhysicalScaleDescription; ?ref d:Building_2_Instance ] .
-}
+WHERE { ?building_name rdf:type :RelativeExistence .
+	d:PhysicalScaleDescription ?ref ?building_name .
+	d:Factor rdf:type ?x; d:hasValue ?factor_number }
+
+#SELECT ?factor_number
+#WHERE { d:Factor rdf:type ?x; d:hasValue ?factor_number }
+
+#SELECT ?building_name ?factor_number ?ref
+#WHERE { ?building_name rdf:type :RelativeExistence .
+#	d:PhysicalScaleDescription ?ref ?building_name .
+#	#?building_name :determinedBy ?x .
+#	#d:Factor ref:type ?x; :hasValue ?factor_number }
 
 # Expected:
 # ?building_name      ?factor_number    ?ref
 # "Building2Model"    "0.5"             :hasTarget
+# "Building1Model"    “2.0”             :hasOrigin
+
+
 

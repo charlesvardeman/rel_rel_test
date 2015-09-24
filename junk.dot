@@ -1,0 +1,111 @@
+digraph {
+	rankdir = LR;
+	charset="utf-8";
+
+	"Rd:PhysicalScaleTranslation" -> "RAttribute" [ label="rdf:type" ];
+	"Rd:Building_1_Instance" -> "RRelativeExistence" [ label="rdf:type" ];
+	"Rd:Building_2_Instance" -> "RRelativeExistence" [ label="rdf:type" ];
+	"Rd:Building1Model" -> "REntity" [ label="rdf:type" ];
+	"Rd:Building1Model" -> "LBuilding1Model" [ label="rdfs:label" ];
+	"Rd:Building2Model" -> "REntity" [ label="rdf:type" ];
+	"Rd:Building2Model" -> "LBuilding2Model" [ label="rdfs:label" ];
+	"Rd:PhysicalScaleDescription" -> "RRelationshipDescription" [ label="rdf:type" ];
+	"Rd:PhysicalScaleDescription" -> "Rd:PhysicalScaleTranslation" [ label="hasAttribute" ];
+	"Rd:PhysicalScaleDescription" -> "Rd:Building_1_Instance" [ label="hasOrigin" ];
+	"Rd:PhysicalScaleDescription" -> "Rd:Building_2_Instance" [ label="hasTarget" ];
+	"Rd:Building_1_Instance" -> "Rd:Building1Model" [ label="relativeExistenceOf" ];
+	"Rd:Building_2_Instance" -> "Rd:Building2Model" [ label="relativeExistenceOf" ];
+	"Rd:2_Buildings" -> "RScope" [ label="rdf:type" ];
+	"Rd:2_Buildings" -> "L2_Buildings" [ label="rdfs:label" ];
+	"Rd:BuildingCoordinateSetDetails" -> "RLevelOfDetail" [ label="rdf:type" ];
+	"Rd:BuildingCoordinateSetDetails" -> "LBuildingCoordinateSetDetails" [ label="rdfs:label" ];
+	"Rd:Building_1_Instance" -> "Rd:2_Buildings" [ label="hasScope" ];
+	"Rd:Building_1_Instance" -> "Rd:BuildingCoordinateSetDetails" [ label="hasBound" ];
+	"Rd:Building_2_Instance" -> "Rd:2_Buildings" [ label="hasScope" ];
+	"Rd:Building_2_Instance" -> "Rd:BuildingCoordinateSetDetails" [ label="hasBound" ];
+	"B_:building1prop" -> "RProperty" [ label="rdf:type" ];
+	"B_:building2prop" -> "RProperty" [ label="rdf:type" ];
+	"Rd:Limit" -> "B_:building1prop" [ label="rdf:type" ];
+	"Rd:Limit" -> "L100" [ label="d:hasValue" ];
+	"Rd:Limit" -> "Ru:years" [ label="d:hasUnit" ];
+	"Rd:Factor" -> "B_:building1prop" [ label="rdf:type" ];
+	"Rd:Factor" -> "L2.0" [ label="d:hasValue" ];
+	"Rd:Factor" -> "Ru:float" [ label="d:hasUnit" ];
+	"Rd:OverallVolume" -> "B_:building1prop" [ label="rdf:type" ];
+	"Rd:OverallVolume" -> "L10000" [ label="d:hasValue" ];
+	"Rd:OverallVolume" -> "Ru:cubic_meters" [ label="d:hasUnit" ];
+	"Rd:Age" -> "B_:building1prop" [ label="rdf:type" ];
+	"Rd:Age" -> "L25" [ label="d:hasValue" ];
+	"Rd:Age" -> "Ru:years" [ label="d:hasUnit" ];
+	"Rd:CoordinateSet" -> "B_:building1prop" [ label="rdf:type" ];
+	"Rd:CoordinateSet" -> "LCAD_File" [ label="d:hasValue" ];
+	"Rd:CoordinateType" -> "B_:building1prop" [ label="rdf:type" ];
+	"Rd:CoordinateType" -> "LWorld_Coordinates" [ label="d:hasValue" ];
+	"Rd:Limit" -> "B_:building2prop" [ label="rdf:type" ];
+	"Rd:Limit" -> "L100" [ label="d:hasValue" ];
+	"Rd:Limit" -> "Ru:years" [ label="d:hasUnit" ];
+	"Rd:Factor" -> "B_:building2prop" [ label="rdf:type" ];
+	"Rd:Factor" -> "L0.5" [ label="d:hasValue" ];
+	"Rd:Factor" -> "Ru:float" [ label="d:hasUnit" ];
+	"Rd:OverallVolume" -> "B_:building2prop" [ label="rdf:type" ];
+	"Rd:OverallVolume" -> "L5000" [ label="d:hasValue" ];
+	"Rd:OverallVolume" -> "Ru:cubic_meters" [ label="d:hasUnit" ];
+	"Rd:Age" -> "B_:building2prop" [ label="rdf:type" ];
+	"Rd:Age" -> "L10" [ label="d:hasValue" ];
+	"Rd:Age" -> "Ru:years" [ label="d:hasUnit" ];
+	"Rd:CoordinateSet" -> "B_:building2prop" [ label="rdf:type" ];
+	"Rd:CoordinateSet" -> "LIFC_File" [ label="d:hasValue" ];
+	"Rd:CoordinateType" -> "B_:building2prop" [ label="rdf:type" ];
+	"Rd:CoordinateType" -> "LLocal_Coordinates" [ label="d:hasValue" ];
+	"Rd:Building_1_Instance" -> "B_:building1prop" [ label="determinedBy" ];
+	"Rd:Building_2_Instance" -> "B_:building2prop" [ label="determinedBy" ];
+
+	// Resources
+	"Rd:PhysicalScaleTranslation" [ label="d:PhysicalScaleTranslation", shape = ellipse, color = blue ];
+	"RAttribute" [ label="Attribute", shape = ellipse, color = blue ];
+	"Rd:Building_1_Instance" [ label="d:Building_1_Instance", shape = ellipse, color = blue ];
+	"RRelativeExistence" [ label="RelativeExistence", shape = ellipse, color = blue ];
+	"Rd:Building_2_Instance" [ label="d:Building_2_Instance", shape = ellipse, color = blue ];
+	"Rd:Building1Model" [ label="d:Building1Model", shape = ellipse, color = blue ];
+	"REntity" [ label="Entity", shape = ellipse, color = blue ];
+	"Rd:Building2Model" [ label="d:Building2Model", shape = ellipse, color = blue ];
+	"Rd:PhysicalScaleDescription" [ label="d:PhysicalScaleDescription", shape = ellipse, color = blue ];
+	"RRelationshipDescription" [ label="RelationshipDescription", shape = ellipse, color = blue ];
+	"Rd:2_Buildings" [ label="d:2_Buildings", shape = ellipse, color = blue ];
+	"RScope" [ label="Scope", shape = ellipse, color = blue ];
+	"Rd:BuildingCoordinateSetDetails" [ label="d:BuildingCoordinateSetDetails", shape = ellipse, color = blue ];
+	"RLevelOfDetail" [ label="LevelOfDetail", shape = ellipse, color = blue ];
+	"RProperty" [ label="Property", shape = ellipse, color = blue ];
+	"Rd:Limit" [ label="d:Limit", shape = ellipse, color = blue ];
+	"Ru:years" [ label="u:years", shape = ellipse, color = blue ];
+	"Rd:Factor" [ label="d:Factor", shape = ellipse, color = blue ];
+	"Ru:float" [ label="u:float", shape = ellipse, color = blue ];
+	"Rd:OverallVolume" [ label="d:OverallVolume", shape = ellipse, color = blue ];
+	"Ru:cubic_meters" [ label="u:cubic_meters", shape = ellipse, color = blue ];
+	"Rd:Age" [ label="d:Age", shape = ellipse, color = blue ];
+	"Rd:CoordinateSet" [ label="d:CoordinateSet", shape = ellipse, color = blue ];
+	"Rd:CoordinateType" [ label="d:CoordinateType", shape = ellipse, color = blue ];
+
+	// Anonymous nodes
+	"B_:building1prop" [ label="", shape = circle, color = green ];
+	"B_:building2prop" [ label="", shape = circle, color = green ];
+
+	// Literals
+	"LBuilding1Model" [ label="Building1Model", shape = record ];
+	"LBuilding2Model" [ label="Building2Model", shape = record ];
+	"L2_Buildings" [ label="2_Buildings", shape = record ];
+	"LBuildingCoordinateSetDetails" [ label="BuildingCoordinateSetDetails", shape = record ];
+	"L100" [ label="100", shape = record ];
+	"L2.0" [ label="2.0", shape = record ];
+	"L10000" [ label="10000", shape = record ];
+	"L25" [ label="25", shape = record ];
+	"LCAD_File" [ label="CAD_File", shape = record ];
+	"LWorld_Coordinates" [ label="World_Coordinates", shape = record ];
+	"L0.5" [ label="0.5", shape = record ];
+	"L5000" [ label="5000", shape = record ];
+	"L10" [ label="10", shape = record ];
+	"LIFC_File" [ label="IFC_File", shape = record ];
+	"LLocal_Coordinates" [ label="Local_Coordinates", shape = record ];
+
+	label="\n\nModel:\n(Unknown)\n\nNamespaces:\nhttp://purl.org/net/rr/RelativeRelationshipPattern#\nd: http://rr-pattern.example/data#\nv: http://rr-pattern.example/extvocab#\nrdfs: http://www.w3.org/2000/01/rdf-schema#\nrdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#\nu: http://learningsparql.com/ns/units#\n";
+}
