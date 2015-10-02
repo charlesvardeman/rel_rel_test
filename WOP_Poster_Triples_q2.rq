@@ -5,9 +5,9 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX u:   <http://learningsparql.com/ns/units#>
 
-SELECT ?building_name ?coordinate_set
-WHERE { ?building_name rdf:type :Entity .
-	d:CoordinateSet rdf:type ?x; d:hasValue ?coordinate_set }
+#SELECT ?building_name ?coordinate_set
+#WHERE { ?building_name rdf:type :Entity .
+#	d:CoordinateSet rdf:type ?x; d:hasValue ?coordinate_set }
 
 # Expected:
 # ?building_name      ?coordinate_set

@@ -33,18 +33,21 @@ d:Building_2_Instance :hasScope d:2_Buildings ; :hasBound d:BuildingCoordinateSe
 
 _:building1prop rdf:type :Property .
 _:building2prop rdf:type :Property .
-d:Limit rdf:type _:building1prop ; d:hasValue "100"; d:hasUnit u:years .
-d:Factor rdf:type _:building1prop ; d:hasValue "2.0"; d:hasUnit u:float .
-d:OverallVolume rdf:type _:building1prop ; d:hasValue "10000"; d:hasUnit u:cubic_meters .
-d:Age rdf:type _:building1prop ; d:hasValue "25"; d:hasUnit u:years .
-d:CoordinateSet rdf:type _:building1prop ; d:hasValue "CAD_File" .
-d:CoordinateType rdf:type _:building1prop ; d:hasValue "World_Coordinates" .
-d:Limit rdf:type _:building2prop ; d:hasValue "100"; d:hasUnit u:years .
-d:Factor rdf:type _:building2prop ; d:hasValue "0.5"; d:hasUnit u:float .
-d:OverallVolume rdf:type _:building2prop ; d:hasValue "5000"; d:hasUnit u:cubic_meters .
-d:Age rdf:type _:building2prop ; d:hasValue "10"; d:hasUnit u:years .
-d:CoordinateSet rdf:type _:building2prop ; d:hasValue "IFC_File" .
-d:CoordinateType rdf:type _:building2prop ; d:hasValue "Local_Coordinates" .
+
+d:Factor1 rdf:type _:building1prop; d:hasValue "2.0"; d:hasType d:Factor; d:hasUnit u:float .
+d:Factor2 rdf:type _:building2prop; d:hasValue "0.5"; d:hasType d:Factor; d:hasUnit u:float .
+
+#d:Limit1 rdf:type _:building1prop ; d:hasValue "100"; d:hasType d:Limit; d:hasUnit u:years .
+#d:OverallVolume1 rdf:type _:building1prop ; d:hasValue "10000"; d:hasType d:OverallVolume; d:hasUnit u:cubic_meters .
+#d:Age1 rdf:type _:building1prop ; d:hasValue "25"; d:hasType d:Age; d:hasUnit u:years .
+#d:CoordinateSet1 rdf:type _:building1prop ; d:hasValue "CAD_File" ; d:hasType d:CoordinateSet.
+#d:CoordinateType1 rdf:type _:building1prop ; d:hasValue "World_Coordinates" ; d:hasType d:CoordinateType.
+#d:Limit2 rdf:type _:building2prop ; d:hasValue "100"; d:hasType d:Limit; d:hasUnit u:years .
+#d:OverallVolume2 rdf:type _:building2prop ; d:hasValue "5000"; d:hasType d:OverallVolume; d:hasUnit u:cubic_meters .
+#d:Age2 rdf:type _:building2prop ; d:hasValue "10"; d:hasType d:Age; d:hasUnit u:years .
+#d:CoordinateSet2 rdf:type _:building2prop ; d:hasValue "IFC_File" ; d:hasType d:CoordinateSet.
+#d:CoordinateType2 rdf:type _:building2prop ; d:hasValue "Local_Coordinates" ; d:hasType d:CoordianteType.
+
 d:Building_1_Instance :determinedBy _:building1prop .
 d:Building_2_Instance :determinedBy _:building2prop .
 
